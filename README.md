@@ -52,7 +52,7 @@ Database Integration
 ## ⚙️ Setup Instructions
 
 1. Clone the Repository
-   git clone https://github.com/your-username/rainfall-prediction.git
+   git clone "link"
    cd rainfall-prediction
 
 2. Install Dependencies
