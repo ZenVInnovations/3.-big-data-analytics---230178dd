@@ -1,39 +1,38 @@
->>> import pandas as pd
-... import numpy as np
-... from sklearn.model_selection import train_test_split
-... from sklearn.ensemble import RandomForestRegressor
-... import matplotlib.pyplot as plt
-... from sklearn.metrics import mean_squared_error
-... 
-... """
-... Rainfall in India Analysis and Prediction
-... Author: Dasari Ushodaya
-... GitHub: https://github.com/[Ushodaya07]
-... Date: May 17, 2025
-... 
-... This code analyzes historical rainfall data in India from 1901-2015,
-... builds prediction models, and provides various visualization techniques.
-... """
-... 
-... 
-... # Load the dataset (adjust the path to your dataset)
-... data = pd.read_csv('rainfall_india_1901-2015.csv')
-... 
-... # Prepare the dataset (feature selection and preprocessing)
-... X = data[['Year', 'Month']]  # Adjust features
-... y = data['Rainfall']
-... 
-... # Split the dataset into training and testing sets
-... X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-... 
-... # Create and train a Random Forest Regressor model
-... model = RandomForestRegressor()
-... model.fit(X_train, y_train)
-... 
-... # Make predictions
-... y_pred = model.predict(X_test)
-... 
-... # Evaluate the model (you can use different metrics)
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error
+
+"""
+Rainfall in India Analysis and Prediction
+Author: Dasari Ushodaya
+GitHub: https://github.com/[Ushodaya07]
+Date: May 17, 2025
+
+This code analyzes historical rainfall data in India from 1901-2015,
+builds prediction models, and provides various visualization techniques.
+"""
+
+# Load the dataset (adjust the path to your dataset)
+data = pd.read_csv('rainfall_india_1901-2015.csv')
+
+# Prepare the dataset (feature selection and preprocessing)
+X = data[['Year', 'Month']]  # Adjust features
+y = data['Rainfall']
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train a Random Forest Regressor model
+model = RandomForestRegressor()
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model (you can use different metrics)
 mse = mean_squared_error(y_test, y_pred)
 print(f"Mean Squared Error: {mse}")
 
@@ -46,7 +45,6 @@ plt.xlabel('Year')
 plt.ylabel('Rainfall')
 plt.legend()
 plt.show()
-
 
 # Explore other advanced analysis techniques based on your project goals and dataset characteristics. Examples include:
 
@@ -86,4 +84,3 @@ import seaborn as sns
 sns.pairplot(data, vars=['feature1', 'feature2'], hue='target_category')
 plt.title('Pairplot of Features')
 plt.show()
-
